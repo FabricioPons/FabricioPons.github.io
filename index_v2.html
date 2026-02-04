@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabricio Pons Samano - Engineering Management & Data Science</title>
+
+    <!-- SEO & Open Graph -->
+    <meta name="description" content="Engineering Management student at Gonzaga University specializing in Data Science, AI/ML, and Technical Project Management. Seeking entry-level positions in tech.">
+    <meta name="keywords" content="Engineering Management, Data Science, Machine Learning, Project Management, Python, AI, Gonzaga University">
+    <meta name="author" content="Fabricio Pons Samano">
+
+    <!-- Open Graph for LinkedIn/Social Sharing -->
+    <meta property="og:title" content="Fabricio Pons Samano - Engineering Management & Data Science">
+    <meta property="og:description" content="Bridging engineering, business, and data science. Fortune 500 experience, AI startup founder, and aerospace project lead.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fabriciopons.github.io">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fabricio Pons Samano - Portfolio">
+    <meta name="twitter:description" content="Engineering Management | Data Science | Applied AI">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0084ff;
+            --primary-dark: #0066cc;
+            --dark-bg: #1a1a2e;
+            --dark-mid: #16213e;
+            --dark-light: #0f3460;
+            --accent: #00d9f5;
+            --text: #333;
+            --text-light: #666;
+            --bg: #f5f5f5;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Staggered animation delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-mid) 50%, var(--dark-light) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated background particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(0, 217, 245, 0.6);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 20s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 18s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 22s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 17s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 19s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 21s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 16s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 4.5s; animation-duration: 23s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 18s; }
+        .particle:nth-child(10) { left: 15%; animation-delay: 3.5s; animation-duration: 20s; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 132, 255, 0.1) 0%, rgba(0, 217, 245, 0.1) 100%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            font-size: 3.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from { filter: drop-shadow(0 0 10px rgba(0, 217, 245, 0.3)); }
+            to { filter: drop-shadow(0 0 20px rgba(0, 217, 245, 0.6)); }
+        }
+
+        header .tagline {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            opacity: 0.95;
+        }
+
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            background: rgba(0, 132, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-links a:hover {
+            background: rgba(0, 132, 255, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 132, 255, 0.4);
+        }
+
+        .resume-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%) !important;
+            border: none !important;
+            font-weight: 600;
+        }
+
+        .resume-btn:hover {
+            transform: translateY(-3px) scale(1.05) !important;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            padding: 15px 0;
+            transition: all 0.3s;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 80%;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            background: white;
+            margin: 30px auto;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            color: var(--dark-bg);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2::before {
+            content: '';
+            width: 40px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        /* Section Dividers */
+        .section-divider {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-light) 100%);
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+            margin: 40px auto;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 217, 245, 0.1) 0%, transparent 50%);
+            animation: rotateBg 20s linear infinite;
+        }
+
+        @keyframes rotateBg {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .section-divider h2 {
+            color: white;
+            border: none;
+            margin: 0;
+            font-size: 1.8em;
+            position: relative;
+            justify-content: center;
+        }
+
+        .section-divider h2::before {
+            display: none;
+        }
+
+        .section-divider p {
+            margin-top: 10px;
+            opacity: 0.9;
+            font-size: 1.1em;
+            position: relative;
+        }
+
+        /* About Section */
+        .about-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .about-content strong {
+            color: var(--primary);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 132, 255, 0.1) 0%, rgba(0, 217, 245, 0.1) 100%);
+            border-left: 4px solid var(--primary);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-style: italic;
+            color: var(--dark-bg);
+        }
+
+        /* Education Section */
+        .education-card {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 30px;
+            align-items: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .education-logo {
+            width: 100px;
+            height: 100px;
+            background: var(--dark-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            color: white;
+        }
+
+        .education-details h3 {
+            font-size: 1.4em;
+            color: var(--dark-bg);
+            margin-bottom: 8px;
+        }
+
+        .education-details .degree {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .education-badges {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .badge.gpa {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+        }
+
+        .badge.dean {
+            background: #ffd700;
+            color: #333;
+            border: none;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, transparent 50%, rgba(0, 132, 255, 0.05) 50%);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 132, 255, 0.15);
+        }
+
+        .skill-category h3 {
+            color: var(--dark-bg);
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h3 .icon {
+            font-size: 1.3em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: white;
+            color: var(--text);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            border: 1px solid #e0e0e0;
+            transition: all 0.2s;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 25px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 132, 255, 0.03) 0%, rgba(0, 217, 245, 0.03) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 132, 255, 0.15);
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .project-title {
+            font-size: 1.5em;
+            color: var(--dark-bg);
+            font-weight: 600;
+        }
+
+        .project-type {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-light);
+            font-size: 0.9em;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #e8f4ff 0%, #d0ebff 100%);
+            color: var(--primary-dark);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            border: 1px solid #b3d9ff;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .tech-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 132, 255, 0.2);
+        }
+
+        .project-description {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+
+        .project-highlights {
+            background: linear-gradient(135deg, #f8f9fa 0%, #f0f4f8 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .project-highlights h4 {
+            color: var(--dark-bg);
+            margin-bottom: 12px;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-highlights ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-highlights li {
+            padding: 8px 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .project-highlights li::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+            background: rgba(0, 132, 255, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        /* Impact Metrics */
+        .impact-metrics {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .metric {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-light) 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 120px;
+            transition: all 0.3s;
+        }
+
+        .metric:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 132, 255, 0.3);
+        }
+
+        .metric-value {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.8em;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .project-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid var(--primary);
+            border-radius: 25px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* Languages & Awards Section */
+        .special-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .special-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .special-card h3 {
+            color: var(--dark-bg);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-item, .award-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .language-item:last-child, .award-item:last-child {
+            border-bottom: none;
+        }
+
+        .proficiency {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 70px 50px;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-mid) 50%, var(--dark-light) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230084ff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            color: white;
+            border: none;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .cta-section h2::before {
+            display: none;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 132, 255, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .cta-button.secondary:hover {
+            background: white;
+            color: var(--dark-bg);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 30px;
+            color: var(--text-light);
+            background: var(--bg);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Scroll Progress Indicator */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            z-index: 1000;
+            transition: width 0.1s;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5em;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0, 132, 255, 0.4);
+            z-index: 99;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header .tagline {
+                font-size: 1em;
+            }
+
+            .header-stats {
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 1.8em;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            .project-header {
+                flex-direction: column;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .education-logo {
+                margin: 0 auto;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .impact-metrics {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <header>
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="header-content">
+            <h1>Fabricio Pons Samano</h1>
+            <p class="tagline">Engineering Management | Data Science | Applied AI & Technical Leadership</p>
+
+            <div class="header-stats">
+                <div class="stat-item">
+                    <span class="stat-number">3.69</span>
+                    <span class="stat-label">GPA</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">11</span>
+                    <span class="stat-label">Countries</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">60%</span>
+                    <span class="stat-label">ML Accuracy Gain</span>
+                </div>
+            </div>
+
+            <div class="contact-links">
+                <a href="mailto:fponssamano@zagmail.gonzaga.edu">📧 Email</a>
+                <a href="tel:+15099579512">📱 (509) 957-9512</a>
+                <a href="https://www.linkedin.com/in/fabricio-pons" target="_blank">💼 LinkedIn</a>
+                <a href="https://github.com/FabricioPons" target="_blank">💻 GitHub</a>
+                <a href="#" class="resume-btn">📄 Download Resume</a>
+            </div>
+        </div>
+    </header>
+
+    <nav id="navbar">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#leadership">Leadership</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about" class="fade-in">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I bridge the gap between <strong>engineering systems</strong>, <strong>business strategy</strong>, and <strong>data-driven decision making</strong>. With experience spanning Fortune 500 treasury operations, AI startup development, and aerospace systems engineering, I bring a unique perspective to technical challenges.</p>
+
+                <div class="highlight-box">
+                    <p>"From mapping financial workflows across 11 countries at Seaboard Corporation to building ML models that achieved 60% accuracy improvements at IntelliPat.AI—I thrive at the intersection of technical depth and business impact."</p>
+                </div>
+
+                <p>Currently completing my <strong>Bachelor of Science in Engineering Management</strong> at Gonzaga University with minors in <strong>Business for Engineering Technologies</strong> and <strong>Data Science</strong>, I'm seeking entry-level positions where I can apply my interdisciplinary skills to drive measurable outcomes.</p>
+            </div>
+        </section>
+
+        <section id="education" class="fade-in">
+            <h2>Education</h2>
+            <div class="education-card">
+                <div class="education-logo">🎓</div>
+                <div class="education-details">
+                    <h3>Gonzaga University</h3>
+                    <p class="degree">B.S. Engineering Management</p>
+                    <p>Minor: Business for Engineering Technologies | Minor: Computer Science - Data Science</p>
+                    <p style="color: #666; margin-top: 5px;">Expected Graduation: May 2026 | Spokane, Washington</p>
+                    <div class="education-badges">
+                        <span class="badge gpa">⭐ GPA: 3.69</span>
+                        <span class="badge dean">🏆 Dean's List Fall 2022 - Present</span>
+                        <span class="badge">🎖️ SACNAS Scholar</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="fade-in">
+            <h2>Technical & Management Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category slide-in-left stagger-1">
+                    <h3><span class="icon">🔧</span> Project & Systems Management</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agile/Scrum</span>
+                        <span class="skill-tag">Asana</span>
+                        <span class="skill-tag">Smartsheet</span>
+                        <span class="skill-tag">SharePoint</span>
+                        <span class="skill-tag">Requirements Engineering</span>
+                        <span class="skill-tag">Systems Engineering</span>
+                        <span class="skill-tag">Process Optimization</span>
+                    </div>
+                </div>
+                <div class="skill-category slide-in-right stagger-2">
+                    <h3><span class="icon">📊</span> Data Science & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Excel Advanced</span>
+                        <span class="skill-tag">Statistical Analysis</span>
+                    </div>
+                </div>
+                <div class="skill-category slide-in-left stagger-3">
+                    <h3><span class="icon">🤖</span> Machine Learning & AI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">W&B</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Sentence Transformers</span>
+                        <span class="skill-tag">Deep Learning</span>
+                    </div>
+                </div>
+                <div class="skill-category slide-in-right stagger-4">
+                    <h3><span class="icon">☁️</span> Tools & Infrastructure</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Adobe Suite</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider fade-in">
+            <h2>Professional Experience</h2>
+            <p>Delivering business value through technical execution at Fortune 500 and high-growth startups</p>
+        </div>
+
+        <section id="experience">
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-title">Treasury Systems Engineer (Intern)</div>
+                    <div class="project-type">Fortune 500 | Seaboard Corporation</div>
+                </div>
+                <div class="project-meta">
+                    <span class="meta-item">📍 Kansas City, KS</span>
+                    <span class="meta-item">📅 May 2025 – Present</span>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Power BI</span>
+                    <span class="tech-tag">Process Automation</span>
+                    <span class="tech-tag">nsKnox</span>
+                    <span class="tech-tag">Treasury Systems</span>
+                    <span class="tech-tag">Digital Transformation</span>
+                </div>
+                <p class="project-description">
+                    Contributing to Seaboard's global treasury operations across multiple divisions (Foods, Energy, Trading, Corporate), driving digital transformation through automation and process optimization. Returned after summer internship to continue advancing treasury technology initiatives.
+                </p>
+                <div class="impact-metrics">
+                    <div class="metric">
+                        <span class="metric-value">11</span>
+                        <span class="metric-label">Countries Mapped</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">4</span>
+                        <span class="metric-label">Divisions Covered</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">Real-time</span>
+                        <span class="metric-label">Validation System</span>
+                    </div>
+                </div>
+                <div class="project-highlights">
+                    <h4>🎯 Key Contributions</h4>
+                    <ul>
+                        <li>Scoped and piloted nsKnox vendor bank account verification across Foods, Energy, Trading, and Corporate divisions, replacing manual callbacks with real-time validation</li>
+                        <li>Mapped funding and repatriation workflows across 11 countries, identifying inefficiencies and recommending automation strategies to improve transparency and reduce costs</li>
+                        <li>Designed and implemented KPI dashboards in Power BI and comparative analysis frameworks to assess treasury technologies</li>
+                        <li>Drafted SOPs for future rollout, enabling data-driven recommendations for global process improvements</li>
+                    </ul>
+                </div>
+                <div class="project-links">
+                    <a href="https://drive.google.com/file/d/1VHf5aTFesxAqXPdHpGwlsQNWlFQ2_1AF/view?usp=drive_link" target="_blank">→ View Presentation</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-title">Project Engineer - IntelliPat.AI</div>
+                    <div class="project-type">AI Startup | Pangeon</div>
+                </div>
+                <div class="project-meta">
+                    <span class="meta-item">📍 Spokane, WA</span>
+                    <span class="meta-item">📅 Feb 2024 – May 2025</span>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Sentence Transformers</span>
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">W&B Sweeps</span>
+                    <span class="tech-tag">Deep Learning</span>
+                    <span class="tech-tag">Data Visualization</span>
+                </div>
+                <p class="project-description">
+                    Developed AI-driven patent similarity models for a semantic search engine that revolutionizes patent analysis. Built end-to-end ML pipelines from data preprocessing to model deployment, collaborating with patent attorneys and engineers to translate legal requirements into technical specifications.
+                </p>
+                <div class="impact-metrics">
+                    <div class="metric">
+                        <span class="metric-value">60%</span>
+                        <span class="metric-label">Accuracy Improvement</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">NDCG/R²</span>
+                        <span class="metric-label">Evaluation Metrics</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">Automated</span>
+                        <span class="metric-label">Novelty Assessment</span>
+                    </div>
+                </div>
+                <div class="project-highlights">
+                    <h4>🎯 Key Contributions</h4>
+                    <ul>
+                        <li>Developed AI-driven patent similarity models using Sentence Transformers and PyTorch, automating novelty assessments and reducing manual review time</li>
+                        <li>Achieved 60% improvement in model accuracy (NDCG and R²) through hyperparameter tuning with W&B Sweeps and cluster-based embedding optimization</li>
+                        <li>Designed evaluation tools quantifying semantic similarity with metrics (MSE, MAE, R², Pearson/Spearman, NDCG) for IP strategy decision-making</li>
+                        <li>Implemented automated reporting pipelines with data visualization, making model outputs interpretable for technical and non-technical stakeholders</li>
+                    </ul>
+                </div>
+                <div class="project-links">
+                    <a href="https://intellipat.ai/" target="_blank">→ Visit IntelliPat.AI</a>
+                    <a href="https://www.pangeon.com/team" target="_blank">→ View Team</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-title">Global Ambassador</div>
+                    <div class="project-type">Gonzaga University | CGE</div>
+                </div>
+                <div class="project-meta">
+                    <span class="meta-item">📍 Spokane, WA</span>
+                    <span class="meta-item">📅 Aug 2023 – Aug 2025</span>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Data Analysis</span>
+                    <span class="tech-tag">Cross-Cultural Communication</span>
+                    <span class="tech-tag">Program Development</span>
+                    <span class="tech-tag">Bilingual (EN/ES)</span>
+                </div>
+                <p class="project-description">
+                    Selected for the CGE Student Advisory Council, advising the Director on global initiatives. Mentor international and domestic students while promoting cross-cultural engagement through data-driven program improvements.
+                </p>
+                <div class="impact-metrics">
+                    <div class="metric">
+                        <span class="metric-value">20%</span>
+                        <span class="metric-label">Participation Increase</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">2 Years</span>
+                        <span class="metric-label">Data Analysis</span>
+                    </div>
+                </div>
+                <div class="project-highlights">
+                    <h4>🎯 Key Contributions</h4>
+                    <ul>
+                        <li>Conducted data collection and analysis for study abroad programs, improving program participation by 20% over two years (2022-2024)</li>
+                        <li>Selected to join Student Advisory Council, advising Director on shaping global initiatives and enhancing international student experience</li>
+                        <li>Provide bilingual document translation (Spanish/English) and deliver lectures on global citizenship topics</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider fade-in">
+            <h2>Technical Projects</h2>
+            <p>Applying data science and systems engineering principles to real-world challenges</p>
+        </div>
+
+        <section id="projects">
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-title">Boeing Cargo Lock Detection System</div>
+                    <div class="project-type">Systems Engineering | Aerospace</div>
+                </div>
+                <div class="project-meta">
+                    <span class="meta-item">📍 Spokane, WA</span>
+                    <span class="meta-item">📅 Aug 2025 – Present</span>
+                    <span class="meta-item">👔 Project Manager</span>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Requirements Engineering</span>
+                    <span class="tech-tag">System Architecture</span>
+                    <span class="tech-tag">Safety-Critical Design</span>
+                    <span class="tech-tag">Stakeholder Management</span>
+                    <span class="tech-tag">Hardware/Software Integration</span>
+                </div>
+                <p class="project-description">
+                    Leading an interdisciplinary Gonzaga–Boeing team to design a safety-critical system that detects and communicates cargo latch failures, ensuring safer and more reliable aircraft loading operations. Managing cross-functional coordination across hardware sensing, data aggregation, and user interface components.
+                </p>
+                <div class="project-highlights">
+                    <h4>🎯 Engineering & Leadership</h4>
+                    <ul>
+                        <li>Lead requirements definition for detecting cargo latch failures in safety-critical aerospace environment</li>
+                        <li>Coordinate cross-functional team across hardware sensing, data aggregation, and user interface domains</li>
+                        <li>Develop system architecture and validation planning with structured deliverables meeting aerospace standards</li>
+                        <li>Facilitate design reviews and iterative refinement sessions with Boeing mentors</li>
+                    </ul>
+                </div>
+                <p style="margin-top: 15px; color: #888; font-style: italic;">📋 Final report available April 2026</p>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-title">Gym Studio Database Management System</div>
+                    <div class="project-type">Data Systems Project</div>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Database Design</span>
+                    <span class="tech-tag">SQL Analytics</span>
+                    <span class="tech-tag">CLI Development</span>
+                </div>
+                <p class="project-description">
+                    Designed and implemented a complete database management system for a gym studio by analyzing business workflows and translating them into a structured technical system. Demonstrates end-to-end ability to bridge business requirements and technical implementation.
+                </p>
+                <div class="project-highlights">
+                    <h4>🎯 Systems Thinking & Approach</h4>
+                    <ul>
+                        <li>Analyzed business workflows to identify core requirements: membership management, class scheduling, payments, and lead conversion</li>
+                        <li>Designed fully normalized relational schema with enforced data integrity</li>
+                        <li>Developed analytics queries providing actionable insights: revenue trends, attendance patterns, and pipeline metrics</li>
+                        <li>Created user-friendly CLI interface accessible to non-technical staff</li>
+                    </ul>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/FabricioPons/dbms" target="_blank">→ View Repository</a>
+                    <a href="https://youtu.be/EzlihfN3AYU" target="_blank">→ Watch Demo</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-title">March Madness Prediction System</div>
+                    <div class="project-type">Applied ML & Analytics</div>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Scikit-learn</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Feature Engineering</span>
+                    <span class="tech-tag">Random Forests</span>
+                    <span class="tech-tag">Model Evaluation</span>
+                </div>
+                <p class="project-description">
+                    Built machine learning system to predict NCAA March Madness tournament outcomes. Go Zags! Demonstrates end-to-end data science workflow: from raw historical data to feature engineering, model selection, evaluation, and interpretation of results.
+                </p>
+                <div class="project-highlights">
+                    <h4>🎯 Data Science Application</h4>
+                    <ul>
+                        <li>Designed complete data pipeline transforming raw tournament datasets into model-ready features</li>
+                        <li>Implemented and compared multiple ML approaches (k-NN, Decision Trees, Random Forests)</li>
+                        <li>Built rigorous evaluation framework to assess model performance in high-uncertainty domain</li>
+                        <li>Documented methodology, findings, and sources of uncertainty for stakeholder communication</li>
+                    </ul>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/gavintate17/CPSC-322-01-Project" target="_blank">→ View Repository</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider fade-in">
+            <h2>Leadership & Entrepreneurship</h2>
+            <p>Building products, leading teams, and driving community impact</p>
+        </div>
+
+        <section id="leadership">
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-title">Mocerto - Logistics Tech Startup</div>
+                    <div class="project-type">Co-Founder | July 2025 - Present</div>
+                </div>
+                <div class="project-meta">
+                    <span class="meta-item">📍 León, Guanajuato, Mexico</span>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">AI Systems</span>
+                    <span class="tech-tag">Product Strategy</span>
+                    <span class="tech-tag">Market Analysis</span>
+                    <span class="tech-tag">Customs & Freight</span>
+                    <span class="tech-tag">Business Development</span>
+                </div>
+                <p class="project-description">
+                    Co-founded early-stage logistics technology venture developing AI-enabled solutions for customs and freight forwarding operations. Partnering with Mexican customs brokerage institutions to build market-ready solutions that address real workflow friction points.
+                </p>
+                <div class="project-highlights">
+                    <h4>🎯 Product Development & Strategy</h4>
+                    <ul>
+                        <li>Conducted market analysis and customer discovery to identify friction points in customs workflows</li>
+                        <li>Contributed to product roadmap for AI-assisted customs review system analyzing declarations and documents</li>
+                        <li>Developed pitch materials and presented to potential partners and stakeholders</li>
+                        <li>Balancing innovation with practical implementation constraints in emerging market</li>
+                    </ul>
+                </div>
+                <div class="project-links">
+                    <a href="https://drive.google.com/file/d/1i2iB0UhpsyHYVGsULNzQKPeCi-YnnE6m/view?usp=drive_link" target="_blank">→ View Pitch Deck</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-title">Leadership & Community Involvement</div>
+                    <div class="project-type">Multiple Organizations</div>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Event Coordination</span>
+                    <span class="tech-tag">Strategic Planning</span>
+                    <span class="tech-tag">Business Consulting</span>
+                    <span class="tech-tag">DEI Advocacy</span>
+                </div>
+                <div class="project-highlights">
+                    <h4>🎯 Leadership Roles</h4>
+                    <ul>
+                        <li><strong>Secretary, ASEM</strong> (Aug 2024 - May 2025): Managed communications and coordinated events for engineering management students. Evaluated Microsoft AI international business case competition.</li>
+                        <li><strong>Business Consultant, New Venture Lab</strong> (Aug 2023 - May 2024): Spearheaded database creation for LaunchPad INW; collaborated with Buy Wander on e-commerce technology implementation.</li>
+                        <li><strong>SACNAS Member & Scholar</strong>: Awarded scholarship for promoting diversity in STEM. Researched low-resource Neural Machine Translation for Mayan indigenous languages (Tseltal).</li>
+                        <li><strong>Volunteer, Yomol A'tel</strong> (July 2024): Collaborated with solidarity enterprises in Chiapas, Mexico supporting community-led sustainable development.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-in" style="padding: 40px 50px;">
+            <h2>Languages & Recognition</h2>
+            <div class="special-section">
+                <div class="special-card">
+                    <h3>🌐 Languages</h3>
+                    <div class="language-item">
+                        <span>Spanish</span>
+                        <span class="proficiency">Native</span>
+                    </div>
+                    <div class="language-item">
+                        <span>English</span>
+                        <span class="proficiency">Bilingual</span>
+                    </div>
+                </div>
+                <div class="special-card">
+                    <h3>🏆 Recognition</h3>
+                    <div class="award-item">
+                        <span>Dean's List</span>
+                        <span style="color: #666;">Fall 2022 - Present</span>
+                    </div>
+                    <div class="award-item">
+                        <span>SACNAS Scholarship</span>
+                        <span style="color: #666;">Diversity in STEM</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section fade-in">
+            <div class="cta-content">
+                <h2>Let's Drive Impact Together</h2>
+                <p>I'm seeking entry-level positions in <strong>Technical Project Management</strong>, <strong>Data Science</strong>, or <strong>Applied AI/ML</strong> where I can leverage my combination of engineering depth, business acumen, and data-driven thinking to deliver measurable business outcomes.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:fponssamano@zagmail.gonzaga.edu" class="cta-button">📧 Get In Touch</a>
+                    <a href="#" class="cta-button secondary">📄 Download Resume</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="mailto:fponssamano@zagmail.gonzaga.edu">Email</a>
+            <a href="tel:+15099579512">Phone</a>
+            <a href="https://www.linkedin.com/in/fabricio-pons" target="_blank">LinkedIn</a>
+            <a href="https://github.com/FabricioPons" target="_blank">GitHub</a>
+        </div>
+        <p>© 2026 Fabricio Pons Samano. Bridging engineering, business, and data science to drive impact.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Back to Top visibility
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Scroll animations with Intersection Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate stats on scroll
+        const animateValue = (element, start, end, duration) => {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value;
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        };
+
+        // Trigger stat animations when header is in view
+        let statsAnimated = false;
+        const headerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsAnimated) {
+                    statsAnimated = true;
+                    // Stats are already showing final values, animation could be added here
+                }
+            });
+        }, { threshold: 0.5 });
+
+        headerObserver.observe(document.querySelector('header'));
+    </script>
+</body>
+</html>
